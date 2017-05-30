@@ -34,18 +34,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this,
                         AlarmReceiverActivity.class);
                 int reqCode = 12345;
-                PendingIntent pendingIntent =
-                        PendingIntent.getActivity(MainActivity.this,
-                                reqCode, intent,
-                                PendingIntent.FLAG_CANCEL_CURRENT);
+
+                // PendingIntent
+                PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.this, reqCode, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
                 // Get AlarmManager instance
-                am = (AlarmManager)
-                        getSystemService(Activity.ALARM_SERVICE);
+                am = (AlarmManager)getSystemService(Activity.ALARM_SERVICE);
 
                 // Set the alarm
-                am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
-                        pendingIntent);
+                am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
             }
         });
 
